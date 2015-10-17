@@ -15,3 +15,12 @@
 /log/*
 !/log/.keep
 /tmp
+
+.DS_Store
+*.swp
+config/database.yml
+config/application.yml
+vendor/bundle
+vendor/bin
+
+.envrc
