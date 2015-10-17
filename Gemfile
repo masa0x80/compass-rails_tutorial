@@ -73,3 +73,5 @@ group :development do
 
   gem 'bullet'
 end
+
+gem 'compass-rails', git: 'https://github.com/Compass/compass-rails.git', branch: 'master'
