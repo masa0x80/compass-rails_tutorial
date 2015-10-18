@@ -1,0 +1,18 @@
+@import 'compass';
+
+$images:   sprite-map('path/to/1x/*.png');
+$images2x: sprite-map('path/to/2x/*.png');
+
+@mixin sprite-background($name) {
+  width:  image-width(sprite-file($images, $name));
+  height: image-height(sprite-file($images, $name));
+  $pos-x: round(nth(sprite-position($images, $name), 1));
+  $pos-y: round(nth(sprite-position($images, $name), 2));
+  background: $images $pos-x $pos-y no-repeat;
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+    $pos-x: round(nth(sprite-position($images2x, $name), 1));
+    $pos-y: round(nth(sprite-position($images2x, $name), 2) / 2);
+    background: $images2x $pos-x $pos-y no-repeat;
+    @include background-size(image-width(sprite-path($images)) image-height(sprite-path($images)));
+  }
+}

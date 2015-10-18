@@ -1,22 +1,10 @@
-@import 'compass';
-
-$images:   sprite-map('path/to/1x/*.png');
-$images2x: sprite-map('path/to/2x/*.png');
+@import 'compass/base';
 
 .image {
-  display:  block;
-  overflow: hidden;
-  width:    256px;
-  height:   128px;
-  background: $images no-repeat;
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
-    background: $images2x no-repeat;
-    @include background-size(image-width(sprite-path($images)) image-height(sprite-path($images)));
-  }
   &.test1 {
-    background-position: sprite-position($images, test1);
+    @include sprite-background(test1)
   }
   &.test2 {
-    background-position: sprite-position($images, test2);
+    @include sprite-background(test2)
   }
 }
