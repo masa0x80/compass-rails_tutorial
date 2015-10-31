@@ -72,6 +72,8 @@ group :development do
   gem 'annotate'
 
   gem 'bullet'
+
+  gem 'quiet_assets'
 end
 
 gem 'compass-rails', git: 'https://github.com/Compass/compass-rails.git', branch: 'master'
