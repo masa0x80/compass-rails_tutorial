@@ -6,4 +6,17 @@ html
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
-    = yield
+    .header
+      .logo-wrapper
+        img.logo src='' alt='Title logo'
+    .wrapper
+      .main
+        = yield
+    .side
+      .menu
+        ul
+          li menu 1
+          li menu 2
+          li menu 3
+    .footer
+      p Copyright © 2015 masa0x80
