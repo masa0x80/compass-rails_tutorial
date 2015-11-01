@@ -1,5 +1,35 @@
 @import 'compass/base';
 
+body {
+  font-size: 15px;
+  line-height: 1.618;
+  @include mobile {
+    font-size: 13px;
+  }
+}
+
+.header {
+  border-bottom: 3px solid #888;
+  text-align: center;
+  padding: 1em 0;
+  margin-bottom: 2em;
+  background: #e8e8e8;
+
+  .logo-wrapper {
+    line-height: 1;
+
+    .logo {
+      width: 400px;
+      height: 50px;
+      @include mobile {
+        width: 400 / 8 * 3px;
+        height: 50 / 8 * 3px;
+      }
+    }
+  }
+}
+
+
 .image {
   &.test1 {
     @include sprite-background(test1)
