@@ -3,8 +3,14 @@
 $images:   sprite-map('path/to/1x/*.png');
 $images2x: sprite-map('path/to/2x/*.png');
 
-@mixin mobile {
+@mixin retina {
   @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and ( max-width: 1024px ) {
     @content;
   }
 }
@@ -15,7 +21,7 @@ $images2x: sprite-map('path/to/2x/*.png');
   $pos-x: round(nth(sprite-position($images, $name), 1));
   $pos-y: round(nth(sprite-position($images, $name), 2));
   background: $images $pos-x $pos-y no-repeat;
-  @include mobile {
+  @include retina {
     $pos-x: round(nth(sprite-position($images2x, $name), 1));
     $pos-y: round(nth(sprite-position($images2x, $name), 2) / 2);
     background: $images2x $pos-x $pos-y no-repeat;

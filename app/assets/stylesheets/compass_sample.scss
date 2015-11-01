@@ -8,6 +8,13 @@ body {
   }
 }
 
+img {
+  @include mobile {
+    max-width: 90%;
+    height: auto;
+  }
+}
+
 .header {
   border-bottom: 3px solid #888;
   text-align: center;
@@ -25,6 +32,38 @@ body {
         width: 400 / 8 * 3px;
         height: 50 / 8 * 3px;
       }
+    }
+  }
+}
+
+.wrapper {
+  width: 1024px;
+  margin: 0 auto;
+  background: gray;
+  overflow: hidden;
+  @include mobile {
+    width: auto;
+    padding: 0 10px;
+  }
+
+  .main {
+    width: 700px;
+    border: 1px solid rgba(0, 0, 0, .1);
+    float: left;
+    @include mobile {
+      width: auto;
+      border: none;
+      float: none;
+    }
+  }
+
+  .side {
+    width: 300px;
+    float: right;
+    @include mobile {
+      margin-top: 1em;
+      width: auto;
+      float: none;
     }
   }
 }
