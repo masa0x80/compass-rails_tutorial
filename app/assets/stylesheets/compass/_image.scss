@@ -1,0 +1,46 @@
+@import 'compass';
+@import 'compass/base';
+
+$images:   sprite-map('path/to/[^@2x]*.png', $spacing: 5px);
+$images2x: sprite-map('path/to/@2x/*.png',   $spacing: 5px);
+
+.image {
+  @each $name in sprite-names($images) {
+    &.#{$name} {
+      display: inline-block;
+      background: sprite($images, $name);
+      @include sprite-dimensions($images, $name);
+      @include retina {
+        width:  ceil(image-width(sprite-file($images2x, $name))  / 2);
+        height: ceil(image-height(sprite-file($images2x, $name)) / 2);
+        background-image: $images2x;
+        $position2x: sprite-position($images2x, $name);
+        background-position: ceil(nth($position2x, 1) / 2) ceil(nth($position2x, 2) / 2);
+        $sprite-width: image-width(sprite-path($images2x));
+        @include background-size(ceil($sprite-width / 2) auto);
+      }
+    }
+  }
+}
+
+@mixin resized-image($name, $width) {
+  display: inline-block;
+  $sprite-width: image-width(sprite-path($images));
+  $ratio: image-width(sprite-file($images, $name)) / $width;
+  width:  ceil(image-width(sprite-file($images, $name))  / $ratio);
+  height: ceil(image-height(sprite-file($images, $name)) / $ratio);
+  background-image: $images;
+  $position: sprite-position($images, $name);
+  background-position: ceil(nth($position, 1) / $ratio) ceil(nth($position, 2) / $ratio);
+  @include background-size(ceil($sprite-width / $ratio) auto);
+  @include mobile {
+    $sprite-width2x: image-width(sprite-path($images2x));
+    $ratio: image-width(sprite-file($images2x, $name)) / $width;
+    width:  ceil(image-width(sprite-file($images2x, $name))  / $ratio);
+    height: ceil(image-height(sprite-file($images2x, $name)) / $ratio);
+    background-image: $images2x;
+    $position: sprite-position($images2x, $name);
+    background-position: ceil(nth($position, 1) / $ratio) ceil(nth($position, 2) / $ratio);
+    @include background-size(ceil($sprite-width2x / $ratio) auto);
+  }
+}

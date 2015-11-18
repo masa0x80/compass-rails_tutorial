@@ -1,4 +1,5 @@
 @import 'compass/base';
+@import 'compass/image';
 
 body {
   font-size: 15px;
@@ -74,13 +75,4 @@ img {
   margin-top: 2em;
   padding: 1em;
   background: #e8e8e8;
-}
-
-.image {
-  &.test1 {
-    @include sprite-background(test1)
-  }
-  &.test2 {
-    @include sprite-background(test2)
-  }
 }
