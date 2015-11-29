@@ -11,13 +11,15 @@ html
         .logo-wrapper
           img.logo src='' alt='Title logo'
       .wrapper
-        .main
+        #menu
+          ul#menu-inner
+            li
+              = link_to 'top', root_path
+            li
+              = link_to 'compass', compass_path
+            li
+              = link_to 'compass', compass_path
+        #main
           = yield
-        .side
-          .menu
-            ul
-              li menu 1
-              li menu 2
-              li menu 3
     .footer
       p Copyright © 2015 masa0x80
