@@ -1,6 +1,10 @@
 @import 'compass/base';
 @import 'compass/image';
 
+* {
+  @include box-sizing(border-box);
+}
+
 body {
   font-size: 15px;
   line-height: 1.618;
@@ -67,12 +71,4 @@ img {
       float: none;
     }
   }
-}
-
-.footer {
-  border-top: 3px solid #888;
-  text-align: center;
-  margin-top: 2em;
-  padding: 1em;
-  background: #e8e8e8;
 }
