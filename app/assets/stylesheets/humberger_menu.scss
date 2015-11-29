@@ -1,0 +1,61 @@
+@import 'compass';
+@import 'compass/base';
+
+.switch {
+  display: none;
+}
+
+.link {
+  cursor: pointer;
+}
+
+#menu {
+  overflow: hidden;
+
+  .close-button {
+    display: none;
+    @include mobile {
+      display: block;
+    }
+  }
+
+  #menu-inner {
+    @include mobile {
+      display: block;
+    }
+  }
+
+  #humberger {
+    display: none;
+    @include mobile {
+      display: block;
+    }
+  }
+
+  #humberger-menu:not(:checked) ~ #humberger {
+    @include mobile {
+      @include translateY(0);
+      @include transition(transform 0.3s);
+    }
+  }
+  #humberger-menu:checked ~ #humberger {
+    @include mobile {
+      height: 0;
+      @include translateY(100%);
+      @include transition(transform 0.3s);
+    }
+  }
+  #humberger-menu:not(:checked) ~ #menu-inner {
+    @include mobile {
+      height: 0;
+      @include translateX(100%);
+      @include transition(transform 0.3s);
+    }
+  }
+  #humberger-menu:checked ~ #menu-inner {
+    @include mobile {
+      @include translateX(0);
+      @include transition(transform 0.3s);
+    }
+  }
+}
